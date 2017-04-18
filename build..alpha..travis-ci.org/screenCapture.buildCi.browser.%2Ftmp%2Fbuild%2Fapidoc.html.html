@@ -1,0 +1,1586 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a href="https://github.com/andywer/thread.js#readme">threads (v0.7.2)</a>
+</h1>
+<h4>Easy to use, yet powerful multi-threading library for node.js and the browser!</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.threads">module threads</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">threads.</span>__esModule</span>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.threads.Pool">
+            function <span class="apidocSignatureSpan">threads.</span>Pool
+            <span class="apidocSignatureSpan">(threads)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.threads.default.Worker">
+            function <span class="apidocSignatureSpan">threads.</span>default.Worker
+            <span class="apidocSignatureSpan">(initialRunnable)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.threads.spawn">
+            function <span class="apidocSignatureSpan">threads.</span>spawn
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">threads.</span>Pool.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">threads.</span>config</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">threads.</span>default</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">threads.</span>default.Worker.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">threads.</span>defaults</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">threads.</span>job</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">threads.</span>pool</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">threads.</span>worker</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.threads.Pool">module threads.Pool</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.threads.Pool.Pool">
+            function <span class="apidocSignatureSpan">threads.</span>Pool
+            <span class="apidocSignatureSpan">(threads)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.threads.Pool.spawn">
+            function <span class="apidocSignatureSpan">threads.Pool.</span>spawn
+            <span class="apidocSignatureSpan">(threadCount)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.threads.Pool.prototype">module threads.Pool.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.threads.Pool.prototype.dequeue">
+            function <span class="apidocSignatureSpan">threads.Pool.prototype.</span>dequeue
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.threads.Pool.prototype.handleJobDone">
+            function <span class="apidocSignatureSpan">threads.Pool.prototype.</span>handleJobDone
+            <span class="apidocSignatureSpan">(thread)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.threads.Pool.prototype.handleJobError">
+            function <span class="apidocSignatureSpan">threads.Pool.prototype.</span>handleJobError
+            <span class="apidocSignatureSpan">(thread, job, error)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.threads.Pool.prototype.handleJobSuccess">
+            function <span class="apidocSignatureSpan">threads.Pool.prototype.</span>handleJobSuccess
+            <span class="apidocSignatureSpan">(thread, job)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.threads.Pool.prototype.handleNewJob">
+            function <span class="apidocSignatureSpan">threads.Pool.prototype.</span>handleNewJob
+            <span class="apidocSignatureSpan">(job)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.threads.Pool.prototype.killAll">
+            function <span class="apidocSignatureSpan">threads.Pool.prototype.</span>killAll
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.threads.Pool.prototype.queueJob">
+            function <span class="apidocSignatureSpan">threads.Pool.prototype.</span>queueJob
+            <span class="apidocSignatureSpan">(job)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.threads.Pool.prototype.run">
+            function <span class="apidocSignatureSpan">threads.Pool.prototype.</span>run
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.threads.Pool.prototype.send">
+            function <span class="apidocSignatureSpan">threads.Pool.prototype.</span>send
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.threads.config">module threads.config</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.threads.config.get">
+            function <span class="apidocSignatureSpan">threads.config.</span>get
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.threads.config.set">
+            function <span class="apidocSignatureSpan">threads.config.</span>set
+            <span class="apidocSignatureSpan">(newConfig)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.threads.default">module threads.default</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.threads.default.Pool">
+            function <span class="apidocSignatureSpan">threads.default.</span>Pool
+            <span class="apidocSignatureSpan">(threads)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.threads.default.Worker">
+            function <span class="apidocSignatureSpan">threads.default.</span>Worker
+            <span class="apidocSignatureSpan">(initialRunnable)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.threads.default.spawn">
+            function <span class="apidocSignatureSpan">threads.default.</span>spawn
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">threads.default.</span>config</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">threads.default.</span>defaults</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.threads.default.Worker">module threads.default.Worker</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.threads.default.Worker.Worker">
+            function <span class="apidocSignatureSpan">threads.default.</span>Worker
+            <span class="apidocSignatureSpan">(initialRunnable)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.threads.default.Worker.prototype">module threads.default.Worker.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.threads.default.Worker.prototype.handleError">
+            function <span class="apidocSignatureSpan">threads.default.Worker.prototype.</span>handleError
+            <span class="apidocSignatureSpan">(error)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.threads.default.Worker.prototype.handleMessage">
+            function <span class="apidocSignatureSpan">threads.default.Worker.prototype.</span>handleMessage
+            <span class="apidocSignatureSpan">(message)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.threads.default.Worker.prototype.handleProgress">
+            function <span class="apidocSignatureSpan">threads.default.Worker.prototype.</span>handleProgress
+            <span class="apidocSignatureSpan">(progress)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.threads.default.Worker.prototype.kill">
+            function <span class="apidocSignatureSpan">threads.default.Worker.prototype.</span>kill
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.threads.default.Worker.prototype.promise">
+            function <span class="apidocSignatureSpan">threads.default.Worker.prototype.</span>promise
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.threads.default.Worker.prototype.run">
+            function <span class="apidocSignatureSpan">threads.default.Worker.prototype.</span>run
+            <span class="apidocSignatureSpan">(toRun)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.threads.default.Worker.prototype.runMethod">
+            function <span class="apidocSignatureSpan">threads.default.Worker.prototype.</span>runMethod
+            <span class="apidocSignatureSpan">(method)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.threads.default.Worker.prototype.runScript">
+            function <span class="apidocSignatureSpan">threads.default.Worker.prototype.</span>runScript
+            <span class="apidocSignatureSpan">(script)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.threads.default.Worker.prototype.send">
+            function <span class="apidocSignatureSpan">threads.default.Worker.prototype.</span>send
+            <span class="apidocSignatureSpan">(param)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.threads.job">module threads.job</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">threads.job.</span>__esModule</span>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.threads.job.default">
+            function <span class="apidocSignatureSpan">threads.job.</span>default
+            <span class="apidocSignatureSpan">(pool)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.threads.pool">module threads.pool</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">threads.pool.</span>__esModule</span>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.threads.pool.default">
+            function <span class="apidocSignatureSpan">threads.pool.</span>default
+            <span class="apidocSignatureSpan">(threads)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.threads.worker">module threads.worker</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">threads.worker.</span>__esModule</span>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.threads.worker.default">
+            function <span class="apidocSignatureSpan">threads.worker.</span>default
+            <span class="apidocSignatureSpan">(initialRunnable)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.threads" id="apidoc.module.threads">module threads</a></h1>
+
+
+
+
+    <h2>
+        <a href="#apidoc.element.threads.Pool" id="apidoc.element.threads.Pool">
+        function <span class="apidocSignatureSpan">threads.</span>Pool
+        <span class="apidocSignatureSpan">(threads)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Pool(threads) {
+  _classCallCheck(this, Pool);
+
+  var _this = _possibleConstructorReturn(this, _EventEmitter.call(this));
+
+  _this.threads = Pool.spawn(threads || _defaults2.default.pool.size);
+  _this.idleThreads = _this.threads.slice();
+  _this.jobQueue = [];
+  _this.runArgs = [];
+
+  _this.on('newJob', function (job) {
+    return _this.handleNewJob(job);
+  });
+  _this.on('threadAvailable', function () {
+    return _this.dequeue();
+  });
+  return _this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.threads.default.Worker" id="apidoc.element.threads.default.Worker">
+        function <span class="apidocSignatureSpan">threads.</span>default.Worker
+        <span class="apidocSignatureSpan">(initialRunnable)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Worker(initialRunnable) {
+  var options = arguments.length &gt; 1 &amp;&amp; arguments[1] !== undefined ? arguments[1] : {};
+
+  _classCallCheck(this, Worker);
+
+  var _this = _possibleConstructorReturn(this, _EventEmitter.call(this));
+
+  _this.slave = _child_process2.default.fork(_path2.default.join(__dirname, 'slave.js'), [], options);
+  _this.slave.on('message', _this.handleMessage.bind(_this));
+  _this.slave.on('error', _this.handleError.bind(_this));
+  _this.slave.on('exit', _this.emit.bind(_this, 'exit'));
+
+  if (initialRunnable) {
+    _this.run(initialRunnable);
+  }
+  return _this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.threads.spawn" id="apidoc.element.threads.spawn">
+        function <span class="apidocSignatureSpan">threads.</span>spawn
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function spawn() {
+  var runnable = arguments.length &gt; 0 &amp;&amp; arguments[0] !== undefined ? arguments[0] : null;
+  var importScripts = arguments.length &gt; 1 &amp;&amp; arguments[1] !== undefined ? arguments[1] : [];
+
+  return new _worker2.default(runnable, importScripts);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  _inherits(Pool, _EventEmitter);
+
+  function Pool(threads) {
+_classCallCheck(this, Pool);
+
+var _this = _possibleConstructorReturn(this, _EventEmitter.call(this));
+
+_this.threads = Pool.<span class="apidocCodeKeywordSpan">spawn</span>(threads || _defaults2.default.pool.size);
+_this.idleThreads = _this.threads.slice();
+_this.jobQueue = [];
+_this.runArgs = [];
+
+_this.on('newJob', function (job) {
+  return _this.handleNewJob(job);
+});
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.threads.Pool" id="apidoc.module.threads.Pool">module threads.Pool</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.threads.Pool.Pool" id="apidoc.element.threads.Pool.Pool">
+        function <span class="apidocSignatureSpan">threads.</span>Pool
+        <span class="apidocSignatureSpan">(threads)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Pool(threads) {
+  _classCallCheck(this, Pool);
+
+  var _this = _possibleConstructorReturn(this, _EventEmitter.call(this));
+
+  _this.threads = Pool.spawn(threads || _defaults2.default.pool.size);
+  _this.idleThreads = _this.threads.slice();
+  _this.jobQueue = [];
+  _this.runArgs = [];
+
+  _this.on('newJob', function (job) {
+    return _this.handleNewJob(job);
+  });
+  _this.on('threadAvailable', function () {
+    return _this.dequeue();
+  });
+  return _this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.threads.Pool.spawn" id="apidoc.element.threads.Pool.spawn">
+        function <span class="apidocSignatureSpan">threads.Pool.</span>spawn
+        <span class="apidocSignatureSpan">(threadCount)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">spawn = function (threadCount) {
+  var threads = [];
+
+  for (var threadIndex = 0; threadIndex &lt; threadCount; threadIndex++) {
+    threads.push((0, _.spawn)());
+  }
+
+  return threads;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  _inherits(Pool, _EventEmitter);
+
+  function Pool(threads) {
+_classCallCheck(this, Pool);
+
+var _this = _possibleConstructorReturn(this, _EventEmitter.call(this));
+
+_this.threads = Pool.<span class="apidocCodeKeywordSpan">spawn</span>(threads || _defaults2.default.pool.size);
+_this.idleThreads = _this.threads.slice();
+_this.jobQueue = [];
+_this.runArgs = [];
+
+_this.on('newJob', function (job) {
+  return _this.handleNewJob(job);
+});
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.threads.Pool.prototype" id="apidoc.module.threads.Pool.prototype">module threads.Pool.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.threads.Pool.prototype.dequeue" id="apidoc.element.threads.Pool.prototype.dequeue">
+        function <span class="apidocSignatureSpan">threads.Pool.prototype.</span>dequeue
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function dequeue() {
+  var _this2 = this;
+
+  if (this.jobQueue.length === 0 || this.idleThreads.length === 0) {
+    return;
+  }
+
+  var job = this.jobQueue.shift();
+  var thread = this.idleThreads.shift();
+
+  job.once('done', function () {
+    for (var _len2 = arguments.length, args = Array(_len2), _key2 = 0; _key2 &lt; _len2; _key2++) {
+      args[_key2] = arguments[_key2];
+    }
+
+    return _this2.handleJobSuccess.apply(_this2, [thread, job].concat(args));
+  }).once('error', function () {
+    for (var _len3 = arguments.length, args = Array(_len3), _key3 = 0; _key3 &lt; _len3; _key3++) {
+      args[_key3] = arguments[_key3];
+    }
+
+    return _this2.handleJobError.apply(_this2, [thread, job].concat(args));
+  });
+
+  job.executeOn(thread);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  _this.jobQueue = [];
+  _this.runArgs = [];
+
+  _this.on('newJob', function (job) {
+    return _this.handleNewJob(job);
+  });
+  _this.on('threadAvailable', function () {
+    return _this.<span class="apidocCodeKeywordSpan">dequeue</span>();
+  });
+  return _this;
+}
+
+Pool.prototype.run = function run() {
+  for (var _len = arguments.length, args = Array(_len), _key = 0; _key &lt; _len; _key++) {
+    args[_key] = arguments[_key];
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.threads.Pool.prototype.handleJobDone" id="apidoc.element.threads.Pool.prototype.handleJobDone">
+        function <span class="apidocSignatureSpan">threads.Pool.prototype.</span>handleJobDone
+        <span class="apidocSignatureSpan">(thread)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function handleJobDone(thread) {
+  var _this4 = this;
+
+  this.idleThreads.push(thread);
+  this.emit('threadAvailable');
+
+  if (this.idleThreads.length === this.threads.length) {
+    // run deferred to give other job.on('done') handlers time to run first
+    setTimeout(function () {
+      _this4.emit('finished');
+    }, 0);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Pool.prototype.handleJobSuccess = function handleJobSuccess(thread, job) {
+  for (var _len4 = arguments.length, responseArgs = Array(_len4 &gt; 2 ? _len4 - 2 : 0), _key4 = 2; _key4 &lt; _len4; _key4++) {
+    responseArgs[_key4 - 2] = arguments[_key4];
+  }
+
+  this.emit.apply(this, ['done', job].concat(responseArgs));
+  this.<span class="apidocCodeKeywordSpan">handleJobDone</span>(thread);
+};
+
+Pool.prototype.handleJobError = function handleJobError(thread, job, error) {
+  this.emit('error', job, error);
+  this.handleJobDone(thread);
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.threads.Pool.prototype.handleJobError" id="apidoc.element.threads.Pool.prototype.handleJobError">
+        function <span class="apidocSignatureSpan">threads.Pool.prototype.</span>handleJobError
+        <span class="apidocSignatureSpan">(thread, job, error)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function handleJobError(thread, job, error) {
+  this.emit('error', job, error);
+  this.handleJobDone(thread);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.threads.Pool.prototype.handleJobSuccess" id="apidoc.element.threads.Pool.prototype.handleJobSuccess">
+        function <span class="apidocSignatureSpan">threads.Pool.prototype.</span>handleJobSuccess
+        <span class="apidocSignatureSpan">(thread, job)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function handleJobSuccess(thread, job) {
+  for (var _len4 = arguments.length, responseArgs = Array(_len4 &gt; 2 ? _len4 - 2 : 0), _key4 = 2; _key4 &lt; _len4; _key4++) {
+    responseArgs[_key4 - 2] = arguments[_key4];
+  }
+
+  this.emit.apply(this, ['done', job].concat(responseArgs));
+  this.handleJobDone(thread);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.threads.Pool.prototype.handleNewJob" id="apidoc.element.threads.Pool.prototype.handleNewJob">
+        function <span class="apidocSignatureSpan">threads.Pool.prototype.</span>handleNewJob
+        <span class="apidocSignatureSpan">(job)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function handleNewJob(job) {
+  var _this3 = this;
+
+  this.lastCreatedJob = job;
+  job.once('readyToRun', function () {
+    return _this3.queueJob(job);
+  }); // triggered by job.send()
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+  _this.threads = Pool.spawn(threads || _defaults2.default.pool.size);
+  _this.idleThreads = _this.threads.slice();
+  _this.jobQueue = [];
+  _this.runArgs = [];
+
+  _this.on('newJob', function (job) {
+    return _this.<span class="apidocCodeKeywordSpan">handleNewJob</span>(job);
+  });
+  _this.on('threadAvailable', function () {
+    return _this.dequeue();
+  });
+  return _this;
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.threads.Pool.prototype.killAll" id="apidoc.element.threads.Pool.prototype.killAll">
+        function <span class="apidocSignatureSpan">threads.Pool.prototype.</span>killAll
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function killAll() {
+  this.threads.forEach(function (thread) {
+    thread.kill();
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    console.log('Job done:', job);
+  })
+  .on('error', function(job, error) {
+    console.error('Job errored:', job);
+  })
+  .on('finished', function() {
+    console.log('Everything done, shutting down the thread pool.');
+    pool.<span class="apidocCodeKeywordSpan">killAll</span>();
+  });
+```
+
+### Streaming
+
+You can also spawn a thread for streaming purposes. The following example shows
+a very simple use case where you keep feeding numbers to the background task
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.threads.Pool.prototype.queueJob" id="apidoc.element.threads.Pool.prototype.queueJob">
+        function <span class="apidocSignatureSpan">threads.Pool.prototype.</span>queueJob
+        <span class="apidocSignatureSpan">(job)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function queueJob(job) {
+  this.jobQueue.push(job);
+  this.dequeue();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+};
+
+Pool.prototype.handleNewJob = function handleNewJob(job) {
+  var _this3 = this;
+
+  this.lastCreatedJob = job;
+  job.once('readyToRun', function () {
+    return _this3.<span class="apidocCodeKeywordSpan">queueJob</span>(job);
+  }); // triggered by job.send()
+};
+
+Pool.prototype.handleJobSuccess = function handleJobSuccess(thread, job) {
+  for (var _len4 = arguments.length, responseArgs = Array(_len4 &gt; 2 ? _len4 - 2 : 0), _key4 = 2; _key4 &lt; _len4; _key4++) {
+    responseArgs[_key4 - 2] = arguments[_key4];
+  }
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.threads.Pool.prototype.run" id="apidoc.element.threads.Pool.prototype.run">
+        function <span class="apidocSignatureSpan">threads.Pool.prototype.</span>run
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function run() {
+  for (var _len = arguments.length, args = Array(_len), _key = 0; _key &lt; _len; _key++) {
+    args[_key] = arguments[_key];
+  }
+
+  this.runArgs = args;
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+const Pool = require('threads').Pool;
+
+const pool = new Pool();
+// Alternatively: new Pool(&lt;number of threads to spawn&gt;)
+
+// Run a script
+const jobA = pool
+  .<span class="apidocCodeKeywordSpan">run</span>('/path/to/worker')
+  .send({ do : 'something' });
+
+// Run the same script, but with a different parameter
+const jobB = pool
+  .send({ do : 'something else' });
+
+// Run inline code
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.threads.Pool.prototype.send" id="apidoc.element.threads.Pool.prototype.send">
+        function <span class="apidocSignatureSpan">threads.Pool.prototype.</span>send
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function send() {
+  if (!this.runArgs) {
+    throw new Error('Pool.send() called without prior Pool.run(). You need to define what to run first.');
+  }
+
+  var job = new _job2.default(this);
+  job.run.apply(job, this.runArgs);
+  return job.send.apply(job, arguments);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// Everything we do here will be run in parallel in another execution context.
+// Remember that this function will be executed in the thread's context,
+// so you cannot reference any value of the surrounding code.
+done({ string : input.string, integer : parseInt(input.string) });
+});
+
+thread
+.<span class="apidocCodeKeywordSpan">send</span>({ string : '123' })
+// The handlers come here: (none of them is mandatory)
+.on('message', function(response) {
+  console.log('123 * 2 = ', response.integer * 2);
+  thread.kill();
+})
+.on('error', function(error) {
+  console.error('Worker errored:', error);
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.threads.config" id="apidoc.module.threads.config">module threads.config</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.threads.config.get" id="apidoc.element.threads.config.get">
+        function <span class="apidocSignatureSpan">threads.config.</span>get
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function get() {
+  return configuration;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+    configDeepMerge(configuration, newConfig);
+  }
+};
+
+exports.default = config;
+function getConfig() {
+  return config.<span class="apidocCodeKeywordSpan">get</span>();
+}
+
+function setConfig() {
+  return config.set.apply(config, arguments);
+}
+//# sourceMappingURL=config.js.map
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.threads.config.set" id="apidoc.element.threads.config.set">
+        function <span class="apidocSignatureSpan">threads.config.</span>set
+        <span class="apidocSignatureSpan">(newConfig)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function set(newConfig) {
+  if ((typeof newConfig === 'undefined' ? 'undefined' : _typeof(newConfig)) !== 'object') {
+    throw new Error('Expected config object.');
+  }
+
+  configDeepMerge(configuration, newConfig);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+```javascript
+const threads = require('threads');
+const config  = threads.config;
+const spawn   = threads.spawn;
+
+// Set base paths to thread scripts
+config.<span class="apidocCodeKeywordSpan">set</span>({
+  basepath : {
+    browser : 'http://myserver.local/thread-scripts',
+    node    : __dirname + '/../thread-scripts'
+  }
+});
+
+const thread = spawn('worker.js');
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.threads.default" id="apidoc.module.threads.default">module threads.default</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.threads.default.Pool" id="apidoc.element.threads.default.Pool">
+        function <span class="apidocSignatureSpan">threads.default.</span>Pool
+        <span class="apidocSignatureSpan">(threads)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Pool(threads) {
+  _classCallCheck(this, Pool);
+
+  var _this = _possibleConstructorReturn(this, _EventEmitter.call(this));
+
+  _this.threads = Pool.spawn(threads || _defaults2.default.pool.size);
+  _this.idleThreads = _this.threads.slice();
+  _this.jobQueue = [];
+  _this.runArgs = [];
+
+  _this.on('newJob', function (job) {
+    return _this.handleNewJob(job);
+  });
+  _this.on('threadAvailable', function () {
+    return _this.dequeue();
+  });
+  return _this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.threads.default.Worker" id="apidoc.element.threads.default.Worker">
+        function <span class="apidocSignatureSpan">threads.default.</span>Worker
+        <span class="apidocSignatureSpan">(initialRunnable)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Worker(initialRunnable) {
+  var options = arguments.length &gt; 1 &amp;&amp; arguments[1] !== undefined ? arguments[1] : {};
+
+  _classCallCheck(this, Worker);
+
+  var _this = _possibleConstructorReturn(this, _EventEmitter.call(this));
+
+  _this.slave = _child_process2.default.fork(_path2.default.join(__dirname, 'slave.js'), [], options);
+  _this.slave.on('message', _this.handleMessage.bind(_this));
+  _this.slave.on('error', _this.handleError.bind(_this));
+  _this.slave.on('exit', _this.emit.bind(_this, 'exit'));
+
+  if (initialRunnable) {
+    _this.run(initialRunnable);
+  }
+  return _this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.threads.default.spawn" id="apidoc.element.threads.default.spawn">
+        function <span class="apidocSignatureSpan">threads.default.</span>spawn
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function spawn() {
+  var runnable = arguments.length &gt; 0 &amp;&amp; arguments[0] !== undefined ? arguments[0] : null;
+  var importScripts = arguments.length &gt; 1 &amp;&amp; arguments[1] !== undefined ? arguments[1] : [];
+
+  return new _worker2.default(runnable, importScripts);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  _inherits(Pool, _EventEmitter);
+
+  function Pool(threads) {
+_classCallCheck(this, Pool);
+
+var _this = _possibleConstructorReturn(this, _EventEmitter.call(this));
+
+_this.threads = Pool.<span class="apidocCodeKeywordSpan">spawn</span>(threads || _defaults2.default.pool.size);
+_this.idleThreads = _this.threads.slice();
+_this.jobQueue = [];
+_this.runArgs = [];
+
+_this.on('newJob', function (job) {
+  return _this.handleNewJob(job);
+});
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.threads.default.Worker" id="apidoc.module.threads.default.Worker">module threads.default.Worker</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.threads.default.Worker.Worker" id="apidoc.element.threads.default.Worker.Worker">
+        function <span class="apidocSignatureSpan">threads.default.</span>Worker
+        <span class="apidocSignatureSpan">(initialRunnable)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Worker(initialRunnable) {
+  var options = arguments.length &gt; 1 &amp;&amp; arguments[1] !== undefined ? arguments[1] : {};
+
+  _classCallCheck(this, Worker);
+
+  var _this = _possibleConstructorReturn(this, _EventEmitter.call(this));
+
+  _this.slave = _child_process2.default.fork(_path2.default.join(__dirname, 'slave.js'), [], options);
+  _this.slave.on('message', _this.handleMessage.bind(_this));
+  _this.slave.on('error', _this.handleError.bind(_this));
+  _this.slave.on('exit', _this.emit.bind(_this, 'exit'));
+
+  if (initialRunnable) {
+    _this.run(initialRunnable);
+  }
+  return _this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.threads.default.Worker.prototype" id="apidoc.module.threads.default.Worker.prototype">module threads.default.Worker.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.threads.default.Worker.prototype.handleError" id="apidoc.element.threads.default.Worker.prototype.handleError">
+        function <span class="apidocSignatureSpan">threads.default.Worker.prototype.</span>handleError
+        <span class="apidocSignatureSpan">(error)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function handleError(error) {
+  if (!this.listeners('error', true)) {
+    console.error(error.stack || error); // eslint-disable-line no-console
+  }
+  this.emit('error', error);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.threads.default.Worker.prototype.handleMessage" id="apidoc.element.threads.default.Worker.prototype.handleMessage">
+        function <span class="apidocSignatureSpan">threads.default.Worker.prototype.</span>handleMessage
+        <span class="apidocSignatureSpan">(message)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function handleMessage(message) {
+  if (message.error) {
+    var error = new Error(message.error.message);
+    error.stack = message.error.stack;
+
+    this.handleError(error);
+  } else if (message.progress) {
+    this.handleProgress(message.progress);
+  } else {
+    this.emit.apply(this, ['message'].concat(message.response));
+    this.emit.apply(this, ['done'].concat(message.response)); // this one is just for convenience
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.threads.default.Worker.prototype.handleProgress" id="apidoc.element.threads.default.Worker.prototype.handleProgress">
+        function <span class="apidocSignatureSpan">threads.default.Worker.prototype.</span>handleProgress
+        <span class="apidocSignatureSpan">(progress)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function handleProgress(progress) {
+  this.emit('progress', progress);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.threads.default.Worker.prototype.kill" id="apidoc.element.threads.default.Worker.prototype.kill">
+        function <span class="apidocSignatureSpan">threads.default.Worker.prototype.</span>kill
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function kill() {
+  this.slave.kill();
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+});
+
+thread
+.send({ string : '123' })
+// The handlers come here: (none of them is mandatory)
+.on('message', function(response) {
+  console.log('123 * 2 = ', response.integer * 2);
+  thread.<span class="apidocCodeKeywordSpan">kill</span>();
+})
+.on('error', function(error) {
+  console.error('Worker errored:', error);
+})
+.on('exit', function() {
+  console.log('Worker has been terminated.');
+});
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.threads.default.Worker.prototype.promise" id="apidoc.element.threads.default.Worker.prototype.promise">
+        function <span class="apidocSignatureSpan">threads.default.Worker.prototype.</span>promise
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function promise() {
+  var _this2 = this;
+
+  return new Promise(function (resolve, reject) {
+    var resolved = void 0,
+        rejected = void 0;
+    resolved = function resolved(result) {
+      _this2.removeListener('error', rejected);
+      resolve(result);
+    };
+    rejected = function rejected(err) {
+      _this2.removeListener('message', resolved);
+      reject(err);
+    };
+
+    _this2.once('message', resolved).once('error', rejected);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Instead of using callbacks, you can also turn thread messages and pool jobs into
+promises.
+
+```javascript
+spawn(myThreadFile)
+  .send({ important : 'data' })
+  .<span class="apidocCodeKeywordSpan">promise</span>()
+  .then(function success(message) {}, function error(error) {});
+```
+
+```javascript
+pool.run(fancyThreadCode);
+
+Promise.all([
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.threads.default.Worker.prototype.run" id="apidoc.element.threads.default.Worker.prototype.run">
+        function <span class="apidocSignatureSpan">threads.default.Worker.prototype.</span>run
+        <span class="apidocSignatureSpan">(toRun)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function run(toRun) {
+  if (typeof toRun === 'function') {
+    this.runMethod(toRun);
+  } else {
+    this.runScript(toRun);
+  }
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+const Pool = require('threads').Pool;
+
+const pool = new Pool();
+// Alternatively: new Pool(&lt;number of threads to spawn&gt;)
+
+// Run a script
+const jobA = pool
+  .<span class="apidocCodeKeywordSpan">run</span>('/path/to/worker')
+  .send({ do : 'something' });
+
+// Run the same script, but with a different parameter
+const jobB = pool
+  .send({ do : 'something else' });
+
+// Run inline code
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.threads.default.Worker.prototype.runMethod" id="apidoc.element.threads.default.Worker.prototype.runMethod">
+        function <span class="apidocSignatureSpan">threads.default.Worker.prototype.</span>runMethod
+        <span class="apidocSignatureSpan">(method)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function runMethod(method) {
+  this.slave.send({
+    initByMethod: true,
+    method: method.toString()
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.threads.default.Worker.prototype.runScript" id="apidoc.element.threads.default.Worker.prototype.runScript">
+        function <span class="apidocSignatureSpan">threads.default.Worker.prototype.</span>runScript
+        <span class="apidocSignatureSpan">(script)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function runScript(script) {
+  if (!script) {
+    throw new Error('Must pass a function or a script path to run().');
+  }
+
+  var prefixedScriptPath = _path2.default.join((0, _config.getConfig)().basepath.node, script);
+
+  // attention: single script for node, array for browser
+  this.slave.send({
+    initByScript: true,
+    script: _path2.default.resolve(prefixedScriptPath)
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.threads.default.Worker.prototype.send" id="apidoc.element.threads.default.Worker.prototype.send">
+        function <span class="apidocSignatureSpan">threads.default.Worker.prototype.</span>send
+        <span class="apidocSignatureSpan">(param)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function send(param) {
+  this.slave.send({
+    doRun: true,
+    param: param
+  });
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// Everything we do here will be run in parallel in another execution context.
+// Remember that this function will be executed in the thread's context,
+// so you cannot reference any value of the surrounding code.
+done({ string : input.string, integer : parseInt(input.string) });
+});
+
+thread
+.<span class="apidocCodeKeywordSpan">send</span>({ string : '123' })
+// The handlers come here: (none of them is mandatory)
+.on('message', function(response) {
+  console.log('123 * 2 = ', response.integer * 2);
+  thread.kill();
+})
+.on('error', function(error) {
+  console.error('Worker errored:', error);
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.threads.job" id="apidoc.module.threads.job">module threads.job</a></h1>
+
+
+
+
+    <h2>
+        <a href="#apidoc.element.threads.job.default" id="apidoc.element.threads.job.default">
+        function <span class="apidocSignatureSpan">threads.job.</span>default
+        <span class="apidocSignatureSpan">(pool)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Job(pool) {
+  _classCallCheck(this, Job);
+
+  var _this = _possibleConstructorReturn(this, _EventEmitter.call(this));
+
+  _this.pool = pool;
+  _this.thread = null;
+
+  _this.runArgs = [];
+  _this.sendArgs = [];
+
+  pool.emit('newJob', _this);
+  return _this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+};
+
+Pool.prototype.send = function send() {
+  if (!this.runArgs) {
+    throw new Error('Pool.send() called without prior Pool.run(). You need to define what to run first.');
+  }
+
+  var job = new _job2.<span class="apidocCodeKeywordSpan">default</span>(this);
+  job.run.apply(job, this.runArgs);
+  return job.send.apply(job, arguments);
+};
+
+Pool.prototype.killAll = function killAll() {
+  this.threads.forEach(function (thread) {
+    thread.kill();
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.threads.pool" id="apidoc.module.threads.pool">module threads.pool</a></h1>
+
+
+
+
+    <h2>
+        <a href="#apidoc.element.threads.pool.default" id="apidoc.element.threads.pool.default">
+        function <span class="apidocSignatureSpan">threads.pool.</span>default
+        <span class="apidocSignatureSpan">(threads)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Pool(threads) {
+  _classCallCheck(this, Pool);
+
+  var _this = _possibleConstructorReturn(this, _EventEmitter.call(this));
+
+  _this.threads = Pool.spawn(threads || _defaults2.default.pool.size);
+  _this.idleThreads = _this.threads.slice();
+  _this.jobQueue = [];
+  _this.runArgs = [];
+
+  _this.on('newJob', function (job) {
+    return _this.handleNewJob(job);
+  });
+  _this.on('threadAvailable', function () {
+    return _this.dequeue();
+  });
+  return _this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+};
+
+Pool.prototype.send = function send() {
+  if (!this.runArgs) {
+    throw new Error('Pool.send() called without prior Pool.run(). You need to define what to run first.');
+  }
+
+  var job = new _job2.<span class="apidocCodeKeywordSpan">default</span>(this);
+  job.run.apply(job, this.runArgs);
+  return job.send.apply(job, arguments);
+};
+
+Pool.prototype.killAll = function killAll() {
+  this.threads.forEach(function (thread) {
+    thread.kill();
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.threads.worker" id="apidoc.module.threads.worker">module threads.worker</a></h1>
+
+
+
+
+    <h2>
+        <a href="#apidoc.element.threads.worker.default" id="apidoc.element.threads.worker.default">
+        function <span class="apidocSignatureSpan">threads.worker.</span>default
+        <span class="apidocSignatureSpan">(initialRunnable)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Worker(initialRunnable) {
+  var options = arguments.length &gt; 1 &amp;&amp; arguments[1] !== undefined ? arguments[1] : {};
+
+  _classCallCheck(this, Worker);
+
+  var _this = _possibleConstructorReturn(this, _EventEmitter.call(this));
+
+  _this.slave = _child_process2.default.fork(_path2.default.join(__dirname, 'slave.js'), [], options);
+  _this.slave.on('message', _this.handleMessage.bind(_this));
+  _this.slave.on('error', _this.handleError.bind(_this));
+  _this.slave.on('exit', _this.emit.bind(_this, 'exit'));
+
+  if (initialRunnable) {
+    _this.run(initialRunnable);
+  }
+  return _this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+};
+
+Pool.prototype.send = function send() {
+  if (!this.runArgs) {
+    throw new Error('Pool.send() called without prior Pool.run(). You need to define what to run first.');
+  }
+
+  var job = new _job2.<span class="apidocCodeKeywordSpan">default</span>(this);
+  job.run.apply(job, this.runArgs);
+  return job.send.apply(job, arguments);
+};
+
+Pool.prototype.killAll = function killAll() {
+  this.threads.forEach(function (thread) {
+    thread.kill();
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
