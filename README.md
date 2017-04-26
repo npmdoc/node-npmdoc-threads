@@ -1,6 +1,6 @@
 # npmdoc-threads
 
-#### api documentation for  [threads (v0.7.2)](https://github.com/andywer/thread.js#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-threads.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-threads) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-threads.svg)](https://travis-ci.org/npmdoc/node-npmdoc-threads)
+#### basic api documentation for  [threads (v0.7.2)](https://github.com/andywer/thread.js#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-threads.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-threads) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-threads.svg)](https://travis-ci.org/npmdoc/node-npmdoc-threads)
 
 #### Easy to use, yet powerful multi-threading library for node.js and the browser!
 
@@ -107,7 +107,8 @@
         "build": "gulp dist",
         "test": "gulp test"
     },
-    "version": "0.7.2"
+    "version": "0.7.2",
+    "bin": {}
 }
 ```
 
